@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+.header{
+    padding-inline:5rem;
+    padding-block: 1rem;
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-items: center;
+}
+.hr,.hl{
+    display: flex;
+    gap: 6rem;
+    font-size: 1.1rem;
+}
+.hc{
+    background-color: black;
+    color: white;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.1rem;
+}

@@ -80,7 +80,8 @@ img {
 .i1{
     position: absolute;
     width: 500px;
-    transform: translateY(-13%);
+    transform: translateY(-15%);
+    z-index: 2;
 
 }
 

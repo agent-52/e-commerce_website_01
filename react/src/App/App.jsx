@@ -13,6 +13,7 @@ import l7 from "./assets/l7.png"
 import forward from "./assets/back2.png"
 import backward from "./assets/back1.png"
 import useMenURL from "../Fetch/FetchDataMen.jsx"
+
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState, useEffect } from "react";   
@@ -27,18 +28,118 @@ gsap.registerPlugin(useGSAP,ScrollTrigger);
 const App = () =>{
     const womensData = useMenURL("https://fakestoreapi.com/products/category/women's clothing")
     const mensData = useMenURL("https://fakestoreapi.com/products/category/men's clothing")
-    console.log(mensData)
-    console.log(womensData)
+    // console.log(mensData)
+    // console.log(womensData)
+    const [i, setI] = useState(0)
+    const [j, setJ] = useState(0)
+    const [k, setK] = useState(0)
+    
+    function time(){
+        let a = 0
+        const interval = setInterval(() => {
+            a += Math.floor(Math.random()*10)
+            setI(a)
+            if(a>=122){
+                setI(122)
+                clearInterval(interval)
+            }
+        }, 35)
+    }
+    function time1(){
+        let a = 0
+        const interval = setInterval(() => {
+            a += Math.floor(Math.random()*10)
+            setJ(a)
+            if(a>=34){
+                setJ(34)
+                clearInterval(interval)
+            }
+        }, 100)
+    }
+    function time2(){
+        let a = 0
+        const interval = setInterval(() => {
+            a += Math.floor(Math.random()*10)
+            setK(a)
+            if(a>=234){
+                setK(234)
+                clearInterval(interval)
+            }
+        }, 25)
+    }
+
     
     //
-    gsap.to("#ball1, #ball2, #ball3", {
-        x: "random(-105, 85)",
-        y: "random(-195, 145)",
-        ease: "power1.inOut",
-        duration: 2, 
-        repeat: -1,
-        repeatRefresh: true
-      });
+    useGSAP(()=>{
+        const tl = gsap.timeline()
+        gsap.to("#ball1, #ball2, #ball3", {
+            x: "random(-105, 85)",
+            y: "random(-195, 145)",
+            ease: "power1.inOut",
+            duration: 2, 
+            repeat: -1,
+            repeatRefresh: true
+          });
+        gsap.from("#mainImage", {
+            y:400,
+            duration:1,
+            opacity:0
+          })
+        gsap.from("#p1H",{
+            y:500,
+            opacity:0,
+            duration:1.3,
+            
+          })
+        gsap.from("#socialIcons", {
+            x:-200,
+            opacity:0,
+            duration:1
+          })
+        gsap.from("#contactIcons", {
+            x:200,
+            opacity:0,
+            duration:1
+          })
+        gsap.from("#blackStrips",{
+            scale:0,
+            opacity:0,
+            duration:1.3,
+            stagger:0.1,
+            delay:0.4,
+            
+          })
+        ScrollTrigger.create({
+            trigger: "#clientNo",
+            duration:2,
+            scrub:1,
+            onEnter: time,
+            
+          });
+        ScrollTrigger.create({
+            trigger: "#brandNo",
+            duration:2,
+            scrub:1,
+            onEnter: time1,
+            
+          });
+        ScrollTrigger.create({
+            trigger: "#salesNo",
+            duration:2,
+            scrub:1,
+            onEnter: time2,
+            
+          });
+        gsap.from("#aboutUs",{
+            opacity:0,
+            y:200,
+            duration:1,
+            scrollTrigger:"true"
+        })
+          
+
+    },)
+    
     //
     
     return(
@@ -47,53 +148,53 @@ const App = () =>{
         <Header/>
         <div className={styles.page1Main}>
             <div className={styles.p1t}>
-                <div className={styles.p1Heading}>
+                <div className={styles.p1Heading} id="p1H">
                     <div>MINIMALIST</div>
                     <div>FASHION</div>
                 </div>
                 <div className={styles.p1CircleBox}>
-                    <div>
+                    <div id="socialIcons">
                         <div className={styles.circle1}>IG</div>
                         <div className={styles.circle1}>TW</div>
                         <div className={styles.circle1}>FB</div>
                         <div className={styles.circle1}>LN</div>
                     </div>
-                    <div>
+                    <div id="contactIcons">
                         <div className={styles.circle1}><img src={mailImage} alt="" /></div>
                         <div className={styles.circle1}><img src={phoneImage} alt="" /></div>
                     </div>
                 </div>
                 
             </div>
-            <div className={styles.p1b}>
-                <img src={i1} alt="" className={styles.i1}/>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div className={styles.lastChild}></div>
+            <div className={styles.p1b} >
+                <img src={i1} alt="" className={styles.i1} id="mainImage"/>
+                <div id="blackStrips"></div>
+                <div id="blackStrips"></div>
+                <div id="blackStrips"></div>
+                <div id="blackStrips"></div>
+                <div id="blackStrips"></div>
+                <div id="blackStrips"></div>
+                <div id="blackStrips"></div>
+                <div className={styles.lastChild} id="blackStrips"></div>
             </div>
         </div>
        </div>
        <div className={styles.page2}>
             <div className={styles.p2_1}>
-                <div className={styles.p2_1_1}>ABOUT US</div>
+                <div className={styles.p2_1_1} id="aboutUs">ABOUT US</div>
                 <div>what began asd astand alone retail store in aarphus denmark in 1997 has since developed into an international fashion brand. minimum is the result of a shared desire to design clothes that is accesible yet fashionable with a keen eye for detal, quality, and fit , not backed by any big cooperation we are still a proud and independent business spearheaded by our founder and owner tang. while aiming to maintain our international outlook.</div>
             </div>
             <div className={styles.p2_2}>
                 <div>
-                    <div className={styles.p2_2_1}>122</div>
+                    <div className={styles.p2_2_1} id="clientNo">{i}</div>
                     <div className={styles.p2_2_2}>CLIENTS</div>
                 </div>
                 <div>
-                    <div className={styles.p2_2_1}>34+</div>
+                    <div className={styles.p2_2_1} id="brandNo">{j}+</div>
                     <div className={styles.p2_2_2}>BRANDS</div>
                 </div>
                 <div>
-                    <div className={styles.p2_2_1}>234K</div>
+                    <div className={styles.p2_2_1} id="salesNo">{k}K</div>
                     <div className={styles.p2_2_2}>SALES</div>
                 </div>
             </div>

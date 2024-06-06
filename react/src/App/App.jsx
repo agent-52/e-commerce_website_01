@@ -13,7 +13,7 @@ import l7 from "./assets/l7.png"
 import forward from "./assets/back2.png"
 import backward from "./assets/back1.png"
 import useMenURL from "../Fetch/FetchDataMen.jsx"
-
+import { Link } from "react-router-dom"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState, useEffect } from "react";   
@@ -43,7 +43,7 @@ const App = () =>{
                 setI(122)
                 clearInterval(interval)
             }
-        }, 35)
+        }, 30)
     }
     function time1(){
         let a = 0
@@ -54,7 +54,7 @@ const App = () =>{
                 setJ(34)
                 clearInterval(interval)
             }
-        }, 100)
+        }, 60)
     }
     function time2(){
         let a = 0
@@ -65,7 +65,7 @@ const App = () =>{
                 setK(234)
                 clearInterval(interval)
             }
-        }, 25)
+        }, 20)
     }
 
     
@@ -247,7 +247,7 @@ const App = () =>{
                     </div>
                 </div>
             </div>
-            <div className={styles.viewMore}><button className={styles.viewMoreButton}>VIEW MORE</button></div>
+            <div className={styles.viewMore}><Link to="shopPage"><button className={styles.viewMoreButton}>VIEW MORE</button></Link></div>
        </div>
         <div className={styles.page3}>
             <div className={styles.stripBox}>

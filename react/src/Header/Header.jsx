@@ -1,17 +1,17 @@
 import styles from "./Header.module.css"
-
+import { Link } from "react-router-dom"
 const Header = ({totalItems=0})=>{
     return(
         <div className={styles.header}>
             <div className={styles.hl}>
-                <div>HOME</div>
+                <Link to="/"><div>HOME</div></Link>
                 <div>ABOUT</div>
                 <div>CONTACT</div>
             </div>
-            <div className={styles.hc}>MSTORE</div>
+            <Link to="/"><div className={styles.hc}>MSTORE</div></Link>
             <div className={styles.hr}>
-                <div>MEN</div>
-                <div>WOMEN</div>
+                <Link to="/ShopPage/men"><div>MEN</div></Link>
+                <Link to="/ShopPage/women"><div>WOMEN</div></Link>
                 <div>CART({totalItems})</div>
             </div>
 

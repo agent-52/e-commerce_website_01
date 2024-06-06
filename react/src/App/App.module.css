@@ -8,7 +8,7 @@
     box-sizing: border-box;
     overflow-x: hidden;
 }
-img {
+.App img {
     filter: grayscale(100%);
   }
 .page1{
@@ -134,7 +134,7 @@ img {
     font-weight: bolder;
 }
 .shopGrid img{
-    width: 155px;
+    max-width: 155px;
     transition: transform 0.5s ease-in-out,filter 0.5s ease-in-out;
 }
 .shopGrid{
@@ -161,6 +161,7 @@ img {
 .title{
     text-transform: uppercase;
     font-weight: bold;
+    
 }
 .price{
     opacity: 0.5;
@@ -403,6 +404,21 @@ input{
 
 .page2 img:hover{
     filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.addToCart{
+    color:white;
+    background-color: black;
+    outline: none;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+.addToCart:hover{
+    
     transform: scale(1.1);
 }
 

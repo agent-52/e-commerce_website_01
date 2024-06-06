@@ -1,0 +1,12 @@
+.shopPage{
+    display:grid;
+    min-height: 100vh;
+}
+.footer{
+    background-color: black;
+    color:white;
+    padding-block: 1rem;
+    font-weight: bold;
+    text-align: center;
+    align-self: self-end;
+}

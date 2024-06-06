@@ -2,6 +2,7 @@ import App from "./App/App";
 import Shop from "./Shop/Shop";
 import ErrorPage from "./Error/ErrorPage";
 
+
 const routes = [
     {
         path: "/",
@@ -9,13 +10,9 @@ const routes = [
         errorElement:<ErrorPage/>,
     },
     {
-        path: "ShopPage",
+        path: "ShopPage/:name",
         element:<Shop/>,
-        // children:[
-        //     {index: true, element: <DefaultProfile />},
-        //     {path: "spinach", element: <Spinach/>},
-        //     {path: "popeye", element: <Popeye />},
-        // ],
+        
     },
 ];
 
